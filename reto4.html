@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <!--
+    El número de serie de diversos tickets consta de letras seguidos de nùmeros. Cree una función que permita añadir +1 a la parte numérica final del ticket.
+
+        incrementTicket('AF4575');  // returns 'AF4576'
+        incrementTicket('TP0005');  // returns 'TP0006'
+        incrementTicket('HEP00049');  // returns 'HEP00050'
+        incrementTicket('RB0000');  // returns 'RB0001'
+-->
+    <script>
+        var cadena = "AF1000";
+
+        function ticketMasUno(pCadena) {
+            var letras = cadena.substring(0, 2);
+            let numeros = cadena.substring(2, cadena.length);
+            console.log("Numeros " + numeros);
+            numeros = parseInt(numeros) + 1;
+            numeros = String(numeros);
+            let contador = 4 - numeros.length;
+            console.log("Longitud: ", contador);
+            if (contador < 4) {
+                for (i = 0; i < contador; i++) {
+                    numeros = 0 + numeros;
+                    console.log("prueba de ceros: ", numeros);
+                }
+                document.write(letras + numeros);
+            } else {
+                document.write(letras + numeros);
+            }
+        }
+        ticketMasUno(cadena);
+    </script>
+</body>
+
+</html>

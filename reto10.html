@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <!--
+    Reto Nº 10:
+    Obtener el segundo número mas grande. Eso es todo.
+
+        La entrada siempre tendrá 2 o más números.
+        getSecondLargest([2, 4, 7]) // return 4
+        getSecondLargest([3, 5, 6, 7, 7]) // return 6
+-->
+    <script>
+        function segundoNumeroMayor(pNumeros) {
+            pNumeros.sort().reverse();
+
+            let i = 1;
+            let numeroMayor = pNumeros[0];
+            let segundoNumeroMayor = pNumeros[i];
+
+            while (numeroMayor == segundoNumeroMayor) {
+                i++;
+                segundoNumeroMayor = pNumeros[i];
+            }
+
+            console.log(
+                "El numero mayor es '" +
+                numeroMayor +
+                "' y el segundo mayor es '" +
+                segundoNumeroMayor +
+                "'."
+            );
+        }
+        segundoNumeroMayor([3, 5, 6, 7, 7]);
+    </script>
+</body>
+
+</html>

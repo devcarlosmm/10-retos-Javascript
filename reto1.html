@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <!--
+    Reto Nº 1:
+    Cree una función que repita una cadena n-veces. 'n' es un entero positivo. El primer parámetro es la cadena que se repetirá, y el segundo es la cantidad de veces que se repetirá.
+
+    repeat('hello', 2); // returns 'hellohello'
+    repeat('.', 3); // returns '...'
+    repeat('cat', 1); // returns 'cat'
+-->
+    <script>
+        const cadena = prompt("Dime la cadena a repetir.");
+        let nRepeticiones = parseInt(prompt("Dime cuantas veces repetimos."));
+
+        if (isNaN(nRepeticiones)) {
+            do {
+                nRepeticiones = parseInt(prompt("Dime cuantas veces repetimos."));
+            } while (isNaN(nRepeticiones));
+        }
+
+        function reto1(pCadena, pNrepeticiones) {
+            for (i = 0; i < pNrepeticiones; i++) {
+                document.write(pCadena);
+            }
+        }
+
+        reto1(cadena, nRepeticiones);
+    </script>
+</body>
+
+</html>

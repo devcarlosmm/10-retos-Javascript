@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <!--
+    En un momento crucial, una cantidad 'n' de personas forman un círculo para finalmente quedar sólo un sobreviviente, lamentablemente el resto será ejecutado por la justicia que a elegido la Permutación de Josefo para hallar al único sobreviviente.
+
+    El conteo comienza alrededor del círculo en una dirección. Cada persona en la posición 'k' es ejecutada. El procedimiento se repite con las personas restantes hasta que sólo quede una persona y se libere.
+
+    Ejemplo:
+
+        josephusSurvivor(7, 3)
+        Si n=7 personas en un círculo y cada k=3 son ejecutadas
+        0 1 2 3 4 5 6
+        1 2 4 5 6 7
+        1,2,3,4,5,6,7 // Secuencia inicial
+        1,2,4,5,7 // 3 y 6 ejecutados
+        1,4,5 // 2 y 7 ejecutados
+        1,4 // 5 ejecutado
+        4 // 1 ejecutado, el sobreviviente es 4
+-->
+    <script>
+        function ejecucion(pPersonas, pNumeroEjecucion) {
+            let arrayNumeros = [];
+            let arrayBorrar = [];
+            let index = 0;
+            let ejecucion = 0;
+
+            for (i = 1; i <= pPersonas; i++) {
+                arrayNumeros.push(i);
+            }
+
+            while (arrayNumeros.length >= 2) {
+                // Sacamos al arrayBorrar los que van a ser ejecutados
+                for (i = 0; i <= arrayNumeros.length; i++) {
+                    ejecucion++;
+                    if (ejecucion == pNumeroEjecucion) {
+                        ejecucion = 0;
+                        arrayBorrar.push(arrayNumeros[i]);
+                    }
+                }
+                console.log("Array de objetos a borrar: ", arrayBorrar);
+
+                //Recorremos el array borrar para eliminar los ejecutados del arrayNumeros
+                for (y = 0; y < arrayBorrar.length; y++) {
+                    var numerito = arrayBorrar[y];
+                    console.log("Numerito", numerito);
+                    console.log("Numero a borrar", arrayNumeros.indexOf(numerito));
+                    arrayNumeros.splice(
+                        arrayNumeros.indexOf(numerito),
+                        arrayNumeros.indexOf(numerito)
+                    );
+                }
+                arrayBorrar = [];
+                console.log("Array Numeros: ", arrayNumeros);
+            }
+        }
+        ejecucion(7, 3);
+    </script>
+</body>
+
+</html>

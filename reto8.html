@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <!--
+    Suma números, no hay nada mas que decir.
+
+        Las entradas siempre serán numeros
+        sum(2) // return 2
+        sum(1)(3) // return 4
+        sum(2)(5)(3) // return 10
+        sum(1)(0)(3)(2) // return 6
+-->
+    <script>
+        function sum(n) {
+            console.log("Valor de N", n);
+
+            function f(x) {
+                console.log("Valor de X", x);
+                return sum(n + x);
+            }
+
+            f.valueOf = () => n;
+            return f;
+        }
+        sum(1);
+    </script>
+</body>
+
+</html>

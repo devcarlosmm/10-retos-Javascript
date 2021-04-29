@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <!--
+    John ha invitado a algunos amigos a una fiesta. Su lista es, según nombres y apellidos:
+
+    ['Fredy Corwill', 'Wilfredo Corwill', 'Barney Tornbull','Betty Tornbull', 'Ben Tornbull', 'Raphael Corwill','Alfredo Corwill'];
+
+        Ordenar de forma alfabética por apellido.
+
+        Si los apellidos son iguales, ordenar por nombre.
+            
+        El resultado es una lista ordenada de 'apellidos y nombres'.
+-->
+    <script>
+        function listaDeInvitados(pCadena) {
+            cadenaNueva = [];
+            cadenaNueva = pCadena.map((e) => e.split(" ").reverse().join(" "));
+            cadenaNueva.sort();
+            console.log(cadenaNueva);
+        }
+
+        listaDeInvitados([
+            "Fredy Corwill",
+            "Wilfredo Corwill",
+            "Barney Tornbull",
+            "Betty Tornbull",
+            "Ben Tornbull",
+            "Raphael Corwill",
+            "Alfredo Corwill",
+            "Alfredo Dorwill",
+            "Malfredo Dorwill",
+        ]);
+    </script>
+</body>
+
+</html>

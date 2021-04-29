@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <!--
+    Cree una función que enmascara una cadena de números, por ejemplo el número de tarjeta de crédito. Todos los números, excepto los últimos 4, deben reemplazarse con el carácter #.
+
+        mask('123456789'); // returns '#####6789'
+        mask('12345'); // returns '#2345'
+        mask('1234'); // returns '1234'
+        mask(''); // returns ''
+-->
+    <script>
+        const cadena = prompt("Dame una cadena de numeros.");
+
+        function checkCadena(pCadena) {
+            const numeros = /^[0-9]+$/;
+            console.log("Match: ", numeros.test(pCadena));
+            if (pCadena == "") {
+                mask(pCadena);
+            } else if (!pCadena.match(numeros)) {
+                alert(
+                    "Contiene caracteres no validos, por favor, agrega una cadena de numeros unicamente"
+                );
+                while (!pCadena.match(numeros)) {
+                    pCadena = prompt("La cadena tiene que ser unicamente de numeros.");
+                }
+                mask(pCadena);
+            } else {
+                mask(pCadena);
+            }
+        }
+
+        function mask(pCadena) {
+            if (pCadena.length > 4) {
+                let nAsteriscos = pCadena.length - 4;
+                let ultimos = pCadena.substring(nAsteriscos, pCadena.length);
+                for (i = 0; i < nAsteriscos; i++) {
+                    document.write("#");
+                }
+                document.write(ultimos);
+            } else {
+                document.write(pCadena);
+            }
+        }
+        checkCadena(cadena);
+    </script>
+</body>
+
+</html>

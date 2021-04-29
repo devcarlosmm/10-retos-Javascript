@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <!--
+    Érase una vez, en un camino a través del viejo oeste salvaje...
+
+    Un hombre recibió instrucciones para ir de un punto a otro. Las instrucciones eran "NORTE", "SUR", "OESTE", "ESTE". Claramente, "NORTE" y "SUR" son opuestos, "OESTE" y "ESTE" también. Ir en una dirección y regresar en la dirección opuesta es un esfuerzo innecesario. Dado que este es el salvaje oeste, con un clima terrible y poca agua, es importante ahorrar energía, de lo contrario, ¡podría morir!
+
+    Las instrucciones dadas al hombre son, por ejemplo:
+
+        ["NORTE", "SUR", "SUR", "ESTE", "OESTE", "NORTE"]
+        Inmediatamente puede ver que ir "NORTE" y luego "SUR" no es razonable, ¡mejor quédese en el mismo lugar! El camino se convierte en ["SUR", "ESTE", "OESTE", "NORTE"]. Ahora, "ESTE" y "OESTE" se anula entre sí. Luego "SUR" y "NORTE" no son directamente opuestos pero se vuelven directamente opuestos después de la reducción de "ESTE" y "OESTE".
+
+    La tarea es darle al hombre una versión simplificada del plan.
+
+        reducePlan(["SUR", "NORTE", "ESTE", "OESTE", "ESTE"]);
+        // return ["ESTE"]
+
+        reducePlan(["NORTE", "SUR", "SUR", "ESTE", "OESTE", "NORTE"]);
+        // return []
+
+        reducePlan(["ESTE", "SUR", "SUR", "NORTE", "NORTE", "OESTE"]);
+        // return []
+-->
+    <script>
+        const cadena = ["SUR", "NORTE", "ESTE", "OESTE", "ESTE"];
+
+        function reducePlan(arr) {
+            let getInverse = function(e) {
+                switch (e) {
+                    case "SUR":
+                        return "NORTE";
+                        break;
+                    case "NORTE":
+                        return "SUR";
+                        break;
+                    case "ESTE":
+                        return "OESTE";
+                        break;
+                    case "OESTE":
+                        return "ESTE";
+                        break;
+                    default:
+                        return "";
+                        break;
+                }
+            };
+            let index = 0;
+            while (arr[index + 1]) {
+                if (arr[index] === getInverse(arr[index + 1])) {
+                    arr.splice(index, 2);
+                    index = 0;
+                } else {
+                    index++;
+                }
+            }
+            return arr;
+        }
+        document.write(reducePlan(cadena));
+    </script>
+</body>
+
+</html>
